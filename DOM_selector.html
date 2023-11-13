@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>Practise Selectors</title>
+  </head>
+  <body>
+    <h1 id="firsthead">First H1</h1>
+    <h1>Second H1</h1>
+    <h3>First H3</h3>
+    <h3>Second H3</h3>
+    <h5>First H5</h5>
+    <h5>Second H5</h5>
+    <h5>Third H5</h5>
+    <div class="green">First DIV</div>
+    <div class="red">Second DIV</div>
+    <div class="blue">Third DIV</div>
+    <p class="green">First P</p>
+    <p class="red">Second P</p>
+    <p class="blue">Third P</p>
+    <hr />
+    <button onClick="changeH1()">Change H1</button>
+    <button onClick="changeH3()">Change H3</button>
+    <button onClick="changeH5()">Change H5</button>
+    <button onClick="changeGreen()">Change Green</button>
+    <button onClick="changeRed()">Change Red</button>
+    <button onClick="changeBlue()">Change Blue</button>
+    <script>
+      function changeH1() {
+        let head1 = document.getElementById("firsthead");
+        head1.style.color="red";
+        }
+
+      function changeH3() {
+        let head2 = document.getElementsByTagName('h3');
+        for(let i = 0; i < head2.length; i++)
+        {
+        head2[i].style.color="green";
+        }
+      }
+
+      function changeH5() {
+        let head3 = document.getElementsByTagName('h5');
+        for(let i = 0; i < head3.length; i++)
+        {
+        head3[i].style.color="green";
+        }
+      }
+
+      function changeGreen() {
+        let head4=document.getElementsByClassName("green");
+        for(let i=0; i < head4.length; i++)
+        {
+            head4[i].style.color="green";
+        }
+      }
+
+      function changeRed() {
+        let head5=document.getElementsByClassName("red");
+        for(let i=0; i < head5.length; i++)
+        {
+            head5[i].style.color="red";
+        }
+      }
+
+      function changeBlue() {
+        let head6=document.getElementsByClassName("blue");
+        for(let i=0; i < head6.length; i++)
+        {
+            head6[i].style.color="blue";
+        }
+      }
+    </script>
+  </body>
+</html>
