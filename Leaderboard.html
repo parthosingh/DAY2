@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #min{
+            width: 150px;
+            height: 100px;
+            text-align: center;
+            font-size: xx-large;
+            background-color: red;
+        }
+        #max{
+            width: 150px;
+            height: 100px;
+            text-align: center;
+            font-size: xx-large;
+            background-color: green;        
+        }
+        #num > button:nth-child(1),
+        #num > button:nth-child(3),
+        #num > button:nth-child(7),
+        #num > button:nth-child(9)
+        {
+        background-color: green;
+        font-size: x-large;
+        }
+        #num > button:nth-child(2),
+        #num > button:nth-child(4),
+        #num > button:nth-child(5),
+        #num > button:nth-child(6),
+        #num > button:nth-child(8)
+        {
+        background-color: orangered;
+        font-size: x-large;
+        }
+        #num > button:nth-child(10)
+        {
+            background-color: purple;
+            margin-left: 120%;
+            font-size: x-large;
+        }
+        #grand_parent{
+            width: 50%;
+            height: 900px;
+            border: 1px solid #ccc;
+            margin: auto;
+        }
+        .parent > div > input {
+            height: 100px;
+        }
+        .score{
+            margin: auto;
+            text-align: center;
+        }
+        .score > input {
+            width: 50%;
+            height: 100px;
+            border: 2px solid ;
+        }
+        #num{
+            width: 30%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+            margin: auto;
+            margin-top:  20px;
+        }
+        #num > button{
+            width: 70px;
+            height: 70px;
+        }
+        #submit > button {
+            width: 50%;
+            height: 70px;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="grand_parent">
+        <div class="parent">
+            <div>
+                <input type="number" value=43 id="min">
+                <h1>MIN</h1>
+            </div>
+            <div>
+                <input type="number" value=2019 id="max">
+                <h1>MAX</h1>
+            </div>
+        </div>
+       
+        <div class="score">
+            <h1>SCORE</h1>
+            <input type="number" id="result">
+        </div>
+        
+        <div id="num">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+        </div>
+
+        <div id="submit">
+            <button id="btn">ENTER</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    let min = document.getElementById("min");
+    let max = document.getElementById("max");
+    let res = document.getElementById("result");
+    let emp = "";
+    let key = document.querySelectorAll("#num > button");
+
+    for(let i=0; i < key.length; i++)
+    {
+        key[i].addEventListener("click",function()
+        {
+            res.value += key[i].innerText;
+        })
+    }
+
+    document.getElementById("btn").addEventListener("click",function(){
+        if(Number(res.value) < Number(min.value)){
+            min.value = res.value
+        }
+        if(Number(res.value) > Number(max.value)){
+            max.value = res.value
+        }
+        else{
+            res.value="";
+        }
+    })
+</script>
